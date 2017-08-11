@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- <!DOCTYPE html> -->
+<html lang="en">   
+<head>   
+    <meta charset="UTF-8">   
+    <title>Login</title>   
+    <link rel="stylesheet" type="text/css" href="login.css"/>  
+      <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+      <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+      <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>  
+   <script>
+$.validator.setDefaults({
+    submitHandler: function() {
+      alert("提交事件!");
+    }
+});
+$().ready(function() {
+// 在键盘按下并释放及提交后验证提交表单
+  $("#signupForm").validate({
+	    rules: {
+	      username: {
+	        required: true,
+	        minlength: 2
+	      },
+	      password: {
+	        required: true,
+	        minlength: 5
+	      },
+	    agree: "required"
+	    },
+	    messages: {	    
+	      username: {
+	        required: "请输入用户名",
+	        minlength: "用户名必需由两个字母组成"
+	      },
+	      password: {
+	        required: "请输入密码",
+	        minlength: "密码长度不能小于 5 个字母"
+	      },
+	    }
+	});
+});
+</script>
+<style>
+.error{
+	color:red;
+}
+</style>
+<!--一个简单的测试文字-->
+</head>   
+<body>   
+    <div id="login">   
+        <h1>Login</h1>   
+        <form class="cmxform" id="signupForm"  method="get">   
+            <input type="text"  placeholder="用户名" name="username" id="username"></input>   
+            <input type="password"  placeholder="密码" name="password" id="password"></input>   
+            <button class="submit" type="submit">登录</button>   
+        </form>   
+    </div>   
+</body>   
+</html>   
